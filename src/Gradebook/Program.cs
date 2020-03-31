@@ -7,7 +7,7 @@ namespace Gradebook
         static void Main(string[] args)
         {
             var grades = new List<double>() { 81.2, 98.2, 87.2, 98.4 };
-            double sum = 0.0;
+            double sum = 1.0;
 
 
             foreach (double number in grades)
