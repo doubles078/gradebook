@@ -6,28 +6,14 @@ namespace Gradebook
     {
         static void Main(string[] args)
         {
-            var grades = new List<double>() { 81.2, 98.2, 87.2, 98.4 };
-            double sum = 1.0;
+            var book = new Book("Dans Grade Book");
+            
+            book.AddGrade(89.1);
+            book.AddGrade(98.2);
+            book.AddGrade(98.4);
+            book.AddGrade(73.8);
 
-
-            foreach (double number in grades)
-            {
-                sum += number;
-            }
-
-            double average = sum / grades.Count;
-
-            System.Console.WriteLine($"The average grade is {average:N1}.");
-            System.Console.WriteLine(sum);
-
-            if (args.Length > 0)
-            {
-                Console.WriteLine($"Hello {args[0]}!");
-            }
-            else
-            {
-                Console.WriteLine($"Hello baby cakes!");
-            }
+            book.ShowStats();
         }
     }
 }
