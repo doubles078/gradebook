@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Gradebook
 {
-    class Book
+    public class Book
     {   
         private List<double> _grades;
         private string _name;
@@ -34,6 +34,27 @@ namespace Gradebook
             double average = sum / _grades.Count;
 
             System.Console.WriteLine($"The average grade is {average:N1}, the min grade is {minGrade:N1}, the highest grade is {highGrade:N1}.");
+       }
+
+       public Statistics GetStats(){
+
+            var stats = new Statistics();
+
+            double sum = 0.0;
+            stats.Max = double.MinValue;
+            stats.Min = double.MaxValue;
+
+            foreach (double number in _grades)
+            {
+                stats.Max = Math.Max(number, stats.Max);
+                stats.Min = Math.Min(number, stats.Min);
+
+                sum += number;
+            }
+
+            stats.Average = sum / _grades.Count;
+       
+            return stats;
        }
     }
 };
